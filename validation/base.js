@@ -2,7 +2,7 @@ const baseSchema = {
   id: "/Base",
   type: "object",
   properties: {
-    type: { type: "string" },
+    type: { type: "string", enum: ["coffee", "frozenFish"] },
     description: { type: "string" },
     created: { type: "string", format: "date-time" },
     mass: { type: "number" },

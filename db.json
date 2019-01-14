@@ -12,24 +12,14 @@
       "treeVariety": "Robusto"
     },
     {
-      "type": "coffee",
-      "description": "my cool description",
-      "created": "2011-10-05T14:48:00.000Z",
-      "mass": 4,
-      "expiry": "2011-10-05T14:48:00.000Z",
-      "cupping": 100,
-      "treeVariety": "Robusto",
-      "id": "01a586ab-7cb7-403a-aab4-4d3013e5f2da"
-    },
-    {
-      "type": "coffee",
-      "description": "my cool description",
-      "created": "2011-10-05T14:48:00.000Z",
-      "mass": 4,
-      "expiry": "2011-10-05T14:48:00.000Z",
-      "cupping": 100,
-      "treeVariety": "Robusto",
-      "id": "6bb4cfb9-ae65-4704-b29c-b67d51e62af1"
+      "type": "frozenFish",
+      "description": "string",
+      "created": "2019-01-14T18:53:07.545Z",
+      "mass": 0,
+      "expiry": "2019-01-14T18:53:07.545Z",
+      "vesselId": "25",
+      "catchDate": "2019-01-14T18:53:07.545Z",
+      "id": "ece7ee10-1839-41ea-9e80-24092c875523"
     }
   ],
   "users": [
@@ -52,27 +42,12 @@
             "maximum": 100
           },
           "treeVariety": {
-            "type": "string"
-          },
-          "userId": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "created": {
             "type": "string",
-            "format": "date-time"
-          },
-          "mass": {
-            "type": "number"
-          },
-          "expiry": {
-            "type": "string",
-            "format": "date-time"
+            "enum": [
+              "Arabica",
+              "Robusto",
+              "Gheisha"
+            ]
           }
         },
         "required": [
@@ -83,7 +58,24 @@
     },
     {
       "name": "frozenFish",
-      "prettyName": "Frozen Fish"
+      "prettyName": "Frozen Fish",
+      "schema": {
+        "id": "/FrozenFishSchema",
+        "type": "object",
+        "properties": {
+          "catchDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "vesselId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "catchDate",
+          "vesselId"
+        ]
+      }
     }
   ],
   "count": 0

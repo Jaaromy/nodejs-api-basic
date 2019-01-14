@@ -32,6 +32,10 @@ function addUnit(data) {
   return connector.addUnit(data);
 }
 
+function getFiltered(filters) {
+  return connector.getFiltered(filters);
+}
+
 module.exports.getById = getById;
 module.exports.getByType = getByType;
 module.exports.getExpired = getExpired;
@@ -40,3 +44,4 @@ module.exports.getAllUnits = getAllUnits;
 module.exports.getUser = getUser;
 module.exports.getSchema = getSchema;
 module.exports.addUnit = addUnit;
+module.exports.getFiltered = getFiltered;

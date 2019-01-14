@@ -4,7 +4,8 @@
   "description": "Test application for Motiion, Inc.",
   "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "express": "^4.16.4",
     "jsonschema": "^1.2.4",
     "lodash-id": "^0.14.0",
-    "lowdb": "^1.0.0"
+    "lowdb": "^1.0.0",
+    "swagger-ui-express": "^4.0.2"
   }
 }

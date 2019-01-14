@@ -16,6 +16,10 @@ describe("Tests for db.js", () => {
 
     expect(db.getById("1")).toEqual(val);
   });
+
+  it("filter", () => {
+    expect(db.getFiltered({})).toBeTruthy();
+  });
 });
 
 describe("Validation", () => {

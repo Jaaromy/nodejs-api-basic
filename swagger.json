@@ -1,0 +1,503 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Motiion RESTful test application.",
+    "version": "0.1.0",
+    "title": "Motiion Test"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "units",
+      "description": "Operations about Units"
+    },
+    {
+      "name": "users",
+      "description": "Operations about Users"
+    },
+    {
+      "name": "types",
+      "description": "Operations about types"
+    }
+  ],
+  "paths": {
+    "/units": {
+      "post": {
+        "tags": ["units"],
+        "summary": "Add a new unit of a specified type",
+        "description": "",
+        "operationId": "addUnit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Coffee"
+                  },
+                  {
+                    "$ref": "#/components/schemas/FrozenFish"
+                  }
+                ]
+              },
+              "example": {
+                "data": {
+                  "type": "coffee",
+                  "description": "string",
+                  "created": "2019-01-14T18:53:07.545Z",
+                  "mass": 0,
+                  "expiry": "2019-01-14T18:53:07.545Z",
+                  "cupping": 0,
+                  "treeVariety": "Arabica"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "get": {
+        "tags": ["units"],
+        "summary": "Get units",
+        "operationId": "getUnits",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "filter[type]",
+            "schema": {
+              "type": "string",
+              "items": {
+                "enum": ["coffee", "frozenFish"]
+              },
+              "example": "coffee"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "filter[expired]",
+            "schema": {
+              "type": "string",
+              "example": "2015-06-05T00:00:00.000Z"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Units"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/units/{id}": {
+      "get": {
+        "tags": ["units"],
+        "summary": "Get unit by id",
+        "operationId": "getUnit",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/Coffee"
+                    },
+                    {
+                      "$ref": "#/components/schemas/FrozenFish"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      },
+      "put": {
+        "tags": ["units"],
+        "summary": "Replace unit",
+        "operationId": "putUnit",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idParam"
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["units"],
+        "summary": "Update unit",
+        "operationId": "updateUnit",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idParam"
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      }
+    },
+    "/units/types": {
+      "get": {
+        "tags": ["units"],
+        "summary": "Get array of valid unit type names",
+        "operationId": "getTypeNames",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Types"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Add a new user",
+        "description": "",
+        "operationId": "addUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      },
+      "get": {
+        "tags": ["users"],
+        "summary": "Get users",
+        "operationId": "getUsers",
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": ["users"],
+        "summary": "Get user by id",
+        "operationId": "getUser",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idParam"
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      },
+      "put": {
+        "tags": ["users"],
+        "summary": "Replace user",
+        "operationId": "putUser",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idParam"
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["users"],
+        "summary": "Update user",
+        "operationId": "updateUser",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idParam"
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      }
+    },
+    "/types": {
+      "post": {
+        "tags": ["types"],
+        "summary": "Add a new type",
+        "description": "",
+        "operationId": "addType",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      },
+      "get": {
+        "tags": ["types"],
+        "summary": "Get types",
+        "operationId": "getTypes",
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      }
+    },
+    "/types/{name}": {
+      "get": {
+        "tags": ["types"],
+        "summary": "Get type by name",
+        "operationId": "getType",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/nameParam"
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      },
+      "put": {
+        "tags": ["types"],
+        "summary": "Replace type",
+        "operationId": "putType",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/nameParam"
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["types"],
+        "summary": "Update type",
+        "operationId": "updateType",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/nameParam"
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "idParam": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "Unique id",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "nameParam": {
+        "name": "name",
+        "in": "path",
+        "required": true,
+        "description": "Name of the type",
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "schemas": {
+      "Types": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "Units": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Base"
+        }
+      },
+      "Base": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "userId": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "created": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "mass": {
+                "type": "number"
+              },
+              "expiry": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      },
+      "Coffee": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "userId": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["coffee"]
+              },
+              "description": {
+                "type": "string"
+              },
+              "created": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "mass": {
+                "type": "number"
+              },
+              "expiry": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "cupping": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "treeVariety": {
+                "type": "string",
+                "enum": ["Arabica", "Robusto", "Gheisha"]
+              }
+            }
+          }
+        }
+      },
+      "FrozenFish": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "userId": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["frozenFish"]
+              },
+              "description": {
+                "type": "string"
+              },
+              "created": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "mass": {
+                "type": "number"
+              },
+              "expiry": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "catchDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "vesselId": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

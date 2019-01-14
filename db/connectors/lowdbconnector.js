@@ -22,7 +22,7 @@ function getByType(type) {
 
 function getExpired(date) {
   return db.get("units").filter(u => {
-    return u.expired < date;
+    return u.expiry < date;
   });
 }
 
@@ -52,6 +52,20 @@ function getUser() {
   return db.get("users").value();
 }
 
+function getFiltered(filters) {
+  return db.get("units").filter(u => {
+    if (filters.expired) {
+      if (filters.type) {
+        return u.expiry < filters.expired && u.type === filters.type;
+      }
+
+      return u.expiry < filters.expired;
+    }
+
+    return u.type === filters.type;
+  });
+}
+
 module.exports.getById = getById;
 module.exports.getByType = getByType;
 module.exports.getExpired = getExpired;
@@ -60,3 +74,4 @@ module.exports.getAllUnits = getAllUnits;
 module.exports.getSchema = getSchema;
 module.exports.addUnit = addUnit;
 module.exports.getUser = getUser;
+module.exports.getFiltered = getFiltered;

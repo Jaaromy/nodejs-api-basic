@@ -7,6 +7,7 @@ const validate = require("../validation/validate");
 const OK = 200;
 const NOT_FOUND = 404;
 const BAD_REQUEST = 400;
+const NOT_IMPLEMENTED = 501;
 
 router.get("/types", (req, res) => {
   res.send(db.getTypeNames());
@@ -28,23 +29,9 @@ router.get("/:id", (req, res) => {
 });
 
 // Filtering
-const getByType = type => {
-  return db.getByType(type);
-};
-
-const getExpired = expired => {
-  return db.getExpired(expired);
-};
-
 const filterMiddleware = (req, res, next) => {
-  if (req.query.filter) {
-    if (req.query.filter.type) {
-      res.status(OK).send(getByType(req.query.filter.type));
-    } else if (req.query.filter.expired) {
-      res.status(OK).send(getExpired(req.query.filter.expired));
-    } else {
-      return next();
-    }
+  if (req.query.filter && (req.query.filter.expired || req.query.filter.type)) {
+    res.status(OK).send(db.getFiltered(req.query.filter));
   } else {
     return next();
   }
@@ -83,21 +70,13 @@ router.post("/", jsonParser, (req, res) => {
 });
 
 // Replace unit
-router.put("/", jsonParser, (req, res) => {
-  if (!req.body) {
-    return res.sendStatus(402);
-  }
-
-  res.send(JSON.stringify(req.body));
+router.put("/:id", jsonParser, (req, res) => {
+  res.sendStatus(NOT_IMPLEMENTED);
 });
 
 // Update unit
-router.patch("/", jsonParser, (req, res) => {
-  if (!req.body) {
-    return res.sendStatus(402);
-  }
-
-  res.send(JSON.stringify(req.body));
+router.patch("/:id", jsonParser, (req, res) => {
+  res.sendStatus(NOT_IMPLEMENTED);
 });
 
 module.exports = router;
