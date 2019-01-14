@@ -1,0 +1,29 @@
+{
+  "name": "motiion",
+  "version": "0.1.0",
+  "description": "Test application for Motiion, Inc.",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaaromy/motiion.git"
+  },
+  "author": "Jaaromy Zierse",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Jaaromy/motiion/issues"
+  },
+  "homepage": "https://github.com/Jaaromy/motiion#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonschema": "^1.2.4",
+    "lodash-id": "^0.14.0",
+    "lowdb": "^1.0.0"
+  }
+}
