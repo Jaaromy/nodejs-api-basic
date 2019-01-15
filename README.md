@@ -61,8 +61,12 @@ Swagger
 ## Simplifications
 
 1. While the documentation and endpoints were created for User and Type CRUD operations, they were not implemented and will return a 501 - Not Implemented response code.
-2. Security was ignored for purposes of the demo. Anyone can hit the endpoints and the app will automatically assume you are user id "1".
-3. While there are basic unit/integration tests, there is not 100% code coverage.
+
+2. Update and Delete operations were not implemented for Unit.
+
+3. Security was ignored for purposes of the demo. Anyone can hit the endpoints and the app will automatically assume you are user id "1".
+
+4. While there are basic unit/integration tests, there is not 100% code coverage.
 
 ## Next Steps
 
