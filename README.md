@@ -31,11 +31,16 @@ All methods can of course also be called by making a regular REST call to the ap
 ### Server
 
 Node.js
+
 Express
 
 ### Database
 
 LowDB
+
+### Validation
+
+jsonschema
 
 ### Testing Framework
 
@@ -44,6 +49,10 @@ Jest
 ### Documentation
 
 Swagger
+
+## Notes
+
+1. Types are completely defined in the database as [JSON schema](http://json-schema.org/) (minus the documentation, of course). Only additional properties need to be added to the database as they are then merged with the base properties during validation.
 
 ## Assumptions
 
