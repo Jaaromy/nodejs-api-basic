@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "Motiion RESTful test application.",
+    "description": "Node.js RESTful test application.",
     "version": "0.1.0",
-    "title": "Motiion Test"
+    "title": "nodejs-api-basic"
   },
   "servers": [
     {
