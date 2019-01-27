@@ -1,6 +1,6 @@
 {
   "name": "nodejs-api-basic",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Basic nodejs api",
   "main": "app.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/Jaaromy/nodejs-api-basic#readme",
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^24.0.0"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
