@@ -1,6 +1,6 @@
-# motiion
+# nodejs-api-basic
 
-Test application for Motiion, Inc.
+Basic nodejs api
 
 ## Build/Test/Run
 
@@ -9,8 +9,8 @@ Test application for Motiion, Inc.
 2. Run the following from the command line
 
 ```bash
-git clone git@github.com:Jaaromy/motiion.git
-cd motiion
+git clone git@github.com:Jaaromy/nodejs-api-basic.git
+cd nodejs-api-basic
 npm install
 npm test
 npm start
