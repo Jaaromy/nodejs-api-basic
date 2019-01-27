@@ -9,7 +9,7 @@ Basic nodejs api
 2. Run the following from the command line
 
 ```bash
-git clone git@github.com:Jaaromy/nodejs-api-basic.git
+git clone https://github.com/Jaaromy/nodejs-api-basic.git
 cd nodejs-api-basic
 npm install
 npm test
